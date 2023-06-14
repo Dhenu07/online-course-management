@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <style>
+            #ajax-loader {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    </head>
+    <body>
+        <div id="ajax-loader" style="display:none;">
+            <img src="./course_images//Loader.gif" alt="Loading...">
+        </div>
+        <div id="content" style="display:none;">
+            <!-- Your content goes here -->
+        </div>
+    </body>
+    <script>
+        // Show Ajax loader
+function showLoader() {
+    document.getElementById("ajax-loader").style.display = "block";
+}
+
+// Hide Ajax loader
+function hideLoader() {
+    document.getElementById("ajax-loader").style.display = "none";
+    document.getElementById("content").style.display = "block";
+}
+
+// Delay function
+function delay(callback, time) {
+    setTimeout(callback, time);
+}
+
+// Ajax request
+function getData() {
+    showLoader();
+
+    // Make Ajax request using jQuery
+    $.ajax({
+        url: "registered.php",
+        success: function(response) {
+            delay(function() {
+                hideLoader();
+                document.getElementById("content").innerHTML = response;
+            }, 1000); // 5 seconds delay
+        }
+    });
+}
+getData();
+    </script>
+</html>

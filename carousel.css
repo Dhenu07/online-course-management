@@ -1,0 +1,35 @@
+main {
+  margin-top: -15px;
+}
+
+#imageContainer {
+height: calc(95vh - 260px); /* subtract header and footer heights */
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+/* Add overflow: hidden to prevent image overflow */
+}
+
+#imageContainer img {
+width: 100%; /* Set width to 100% to make the image fill the container */
+height: 100%; /* Set height to 100% to make the image fill the container */
+object-fit: cover; /* Use object-fit: cover to maintain aspect ratio and fill the container */
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade.show {
+  opacity: 1;
+}
+
+
+
+/* body {
+background-image: url('images/Backdround.jpg');
+background-size: cover; 
+background-repeat: no-repeat;
+} */
